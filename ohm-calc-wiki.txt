@@ -1,0 +1,64 @@
+
+Voltage (V) - Volts (V) - V
+Current (I) - amps A
+Resistance (R) - ohms ohmjel
+Power (P) - Watts (W)
+
+Voltage - V
+Current - A
+Resistance - ohmjel
+Power - (W)
+
+
+Steps For Use:
+
+- Enter Any Two Variables In The Respective Boxes.
+- Click Calculate Button.
+
+
+
+Ohm's Law Calculator
+
+DC Ohm's law calculator
+
+
+DC calculation
+
+Voltage (V) calculation from current (I) and resistance (R):
+
+V(V) = I(A) × R(Ω)
+
+Complex power (S) calculation from voltage (V) and current (I):
+
+P(W) = V(V) × I(A) = V 2(V) / R(Ω) = I 2(A) × R(Ω)
+
+
+Ohm's Law defines the relationship between power, voltage, current, and resistance. The various possible formulas for Ohm's law are as follows.
+
+Where
+P = power in watts
+E = voltage in volts
+I = current in amps
+R = resistance in ohms
+
+P = E2/R
+P = I2 * R
+P = E * I
+
+E = sqrt(P * R)
+E = P/I
+E = I * R
+
+I = E/R
+I = P/E
+I = sqrt(P/R)
+
+R = E/I
+R = E2/P
+R = P/I2
+
+
+
+Ohm's law
+How to calc
+https://en.wikipedia.org/wiki/Ohm's_law

@@ -1,0 +1,290 @@
+<!DOCTYPE html> <!-- ohm-calc v2.0.0 -->
+<html>
+<title>Ohm's Law Calculator</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" href="ohm-calc.ico" type="image/x-icon">
+<meta name="description" content="" />
+<meta name="keywords" content="" />
+<meta name="Author" content="Czigler Ferenc">
+<meta copyright="Copyright" content="(c) Czigler Ferenc">
+
+<style>
+
+.center	  {  text-align: center;   }
+.right    {  text-align: right;    }
+.left     {  text-align: left;     }
+.justify  {  text-align: justify;  }
+
+html
+{
+	scroll-behavior: smooth;  /* auto / smooth / unset / inherit / initial - only firefox and chrome */
+	-webkit-overflow-scrolling: touch; 
+	overflow-scrolling: touch; /* of iOS */
+    overflow-x: scroll; /* hidden / auto / scroll */
+	overflow-y: scroll;
+	overflow: scroll;
+	margin: 0px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+body
+{
+	text-align: center;
+	font-family: "Helvetica","Arial",sans-serif;
+	color: #333;
+	background-color: white;
+}
+
+a
+{
+	text-decoration: none;
+	color: #333;
+}
+
+a:hover
+{
+	text-decoration: underline;
+}
+
+header
+{
+	text-align: center;
+}
+
+article
+{
+	max-width: 450px;
+	width: 99%;
+	display: inline-table; /* inline-table */
+}
+
+div
+{
+	margin-top: 10px;
+}
+
+table
+{
+	display: inline-table;
+}
+
+td
+{
+	text-align: left;
+	padding: 5px;
+}
+
+input
+{
+	width: 100px;
+	border: 3px #333;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 10px;
+	padding-right: 10px;
+	border-radius: 10px;
+	font-size: 0.9em;
+}
+
+input:hover
+{
+	box-shadow:0 0 6px #333; /* apple */
+	/* box-shadow:0 0 6px #4169E1; */
+}
+
+input:focus
+{
+	box-shadow:0 0 6px #333; /* apple */
+	/* box-shadow:0 0 6px #4169E1; */
+}
+
+.div_calc
+{
+	background-color: #F2F2F2; 
+	padding-top: 10px;
+	padding-bottom: 10px;
+	border: 1px solid #333; 
+	border-radius: 25px;
+}
+
+.material.button
+{
+	border: 1px solid grey;
+	background-color: grey;
+	/*
+	border: 1px solid #4169E1;
+	background-color: #4169E1;
+	*/
+	color: white;
+	font-family: Arial;
+	//box-shadow:0 0 3px grey;
+	text-align: center;
+	cursor: pointer;
+	width: 100px;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 5px;
+}
+
+.material.button.rectangle
+{
+	font-size: 0.8em;
+	font-weight: bold;
+	padding-left: 15px;
+	padding-right: 15px;
+	height: 38px;
+	border-radius: 5px;
+}
+
+.material.button.rectangle:hover
+{
+	box-shadow: 0 0 6px grey;
+}
+
+#help
+{
+	display: none;
+	max-width: 350px;
+	width: 99%;
+}
+
+</style>
+
+<script>
+
+var fvf;
+var	frf;
+var fif;
+var fpf;
+
+function reset()
+{
+	fvf.value="";
+	frf.value="";
+	fif.value="";
+	fpf.value="";
+}
+
+function help()
+{
+	document.getElementById('help').style.display='inline-table';
+}
+
+function calc()
+{
+	if (fvf.value!="" && frf.value!="" && fif.value=="" && fpf.value=="")
+		{
+			fif.value=fvf.value/frf.value;
+			fpf.value=fvf.value*fif.value;
+		}
+	if (fvf.value!="" && frf.value=="" && fif.value!="" && fpf.value=="")
+		{
+			frf.value=fvf.value/fif.value;
+			fpf.value=fvf.value*fif.value;
+		}	
+	if (fvf.value!="" && frf.value=="" && fif.value=="" && fpf.value!="")
+		{
+			fif.value=fpf.value/fvf.value;
+			frf.value=fvf.value/fif.value;
+		}
+	if (fvf.value=="" && frf.value!="" && fif.value!="" && fpf.value=="")
+		{
+			fvf.value=frf.value*fif.value;
+			fpf.value=fif.value*fvf.value;
+		}
+	if (fvf.value=="" && frf.value!="" && fif.value=="" && fpf.value!="")
+		{
+			fvf.value=Math.sqrt(fpf.value*frf.value);
+			fif.value=fvf.value/frf.value;
+		}
+	if (fvf.value=="" && frf.value=="" && fif.value!="" && fpf.value!="")
+		{
+			fvf.value=fpf.value/fif.value;
+			frf.value=fvf.value/fif.value;
+		}		
+}
+
+function main()
+{
+	fvf=document.getElementById('fv');
+	frf=document.getElementById('fr');
+	fif=document.getElementById('fi');
+	fpf=document.getElementById('fp');
+}
+
+</script>
+
+<body onload="main();">
+
+<header>
+</header>
+
+<section>
+	<article>
+		<div class="div_calc">
+			<div class="center">
+				<h2>DC &ohm; - Ohm's Law Calculator</h2>
+			</div>
+			<table>
+				<tr>
+					<td>Voltage (V)</td>
+					<td><input id="fv" type="number" min="0" step="0.1"></td>
+					<td>Volts (V)</td>
+				</tr>
+				<tr>
+					<td>Resistance (R)</td>
+					<td><input id="fr" type="number" min="0" step="0.1"></td>
+					<td>Ohms (&ohm;)</td>
+				</tr>
+				<tr>
+					<td>Current (I)</td>
+					<td><input id="fi" type="number" min="0" step="0.1"></td>
+					<td>Amps (A)</td>
+				</tr>
+				<tr>
+					<td>Power (P)</td>
+					<td><input id="fp" type="number" min="0" step="0.1"></td>
+					<td>Watts (W)</td>
+			</table>
+			<div>
+				<button class="material button rectangle" onclick="reset();">Reset</button>
+				<button class="material button rectangle" onclick="help();">Help</button>
+				<button class="material button rectangle" onclick="calc();">Calc</button>
+			</div>
+			<div class="center">
+				<h6>&#169; Copyright Czigler Ferenc All Rights Reserved.</h6>
+			</div>
+		</div>
+	</article>
+</section>
+
+<section id="help">	
+	<article>
+		<div class="center">
+			<h3>How to use</h3>
+		</div>
+		<div class="left">
+			<ol>
+				<li>Enter any two variables in the fields.</li>
+				<li>Click Calc button.</li>
+			</ol>
+		</div>
+		<div class="center">
+			<h3>How to calc</h3>
+		</div>
+		<div class="left">
+			<ul>
+				<li>Ohm's law: <a href="https://en.wikipedia.org/wiki/Ohm's_law" target="_blank">Wikipedia page</a></li>
+				<li>Electric power: <a href="https://en.wikipedia.org/wiki/Electric_power" target="_blank">Wikipedia page</a></li>
+			</ul>
+		</div>
+	</article>
+</section>
+	
+<footer>
+</footer>
+
+</body>
+</html> 
